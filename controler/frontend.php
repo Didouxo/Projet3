@@ -9,10 +9,10 @@ function listPosts()
     require('view/frontend/listPostsView.php');
 }
 
-function post()
+function post($id)
 {
-    $post = getPost($_GET['id']);
-    $comments = getComments($_GET['id']);
+    $post = getPost($id);
+    $comments = getComments($id);
 
     require('view/frontend/postView.php');
 }
