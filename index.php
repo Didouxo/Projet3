@@ -1,5 +1,9 @@
 <?php
-require('controler/frontend.php');
+require 'model/Manager.php';
+require 'model/CommentManager.php';
+require 'model/PostManager.php';
+
+require 'controler/frontend.php';
 
 try {
     if (isset($_GET['action'])) {

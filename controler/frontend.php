@@ -1,12 +1,8 @@
 <?php
 
-// Chargement des classes
-require_once('model/PostManager.php');
-require_once('model/CommentManager.php');
-
 function listPosts()
 {
-    $postManager = new \OpenClassrooms\Blog\Model\PostManager();
+    $postManager = new PostManager();
     $posts = $postManager->getPosts();
 
     require('view/frontend/listPostsView.php');
@@ -14,8 +10,8 @@ function listPosts()
 
 function post()
 {
-    $postManager = new \OpenClassrooms\Blog\Model\PostManager();
-    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+    $postManager = new PostManager();
+    $commentManager = new CommentManager();
 
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
@@ -25,7 +21,7 @@ function post()
 
 function addComment($postId, $author, $comment)
 {
-    $commentManager = new \OpenClassrooms\Blog\Model\CommentManager();
+    $commentManager = new CommentManager();
 
     $affectedLines = $commentManager->postComment($postId, $author, $comment);
 
