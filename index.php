@@ -12,9 +12,9 @@ try {
         if ($_GET['action'] == 'listPosts') {
             $frontendController->listPosts();
         }
-        elseif ($_GET['action'] == 'article') {
+        elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $frontendController->article($_GET['id']);
+                $frontendController->post($_GET['id']);
             }
             else {
                 throw new Exception('Aucun identifiant de billet envoyé');

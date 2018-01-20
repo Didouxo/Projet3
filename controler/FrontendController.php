@@ -10,7 +10,7 @@ class FrontendController{
       require('view/frontend/listPostsView.php');
   }
 
-  public function article()
+  public function post()
   {
       $postManager = new PostManager();
       $commentManager = new CommentManager();
