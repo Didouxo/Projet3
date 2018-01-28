@@ -3,7 +3,7 @@ require 'model/Manager.php';
 require 'model/CommentManager.php';
 require 'model/PostManager.php';
 
-require 'controler/FrontendController.php';
+require 'controller/FrontendController.php';
 
 $frontendController = new FrontendController();
 
@@ -33,6 +33,14 @@ try {
                 throw new Exception('Aucun identifiant de billet envoyé');
             }
         }
+       elseif ($_GET['action'] == 'report') {
+         if (isset($_GET['id']) && isset($_GET['postId'])) {
+           $frontendController->report($_GET['postId'], $_GET['id']);
+         }
+         else {
+             throw new Exception('Tous les champs ne sont pas remplis !');
+         }
+       }
     }
     else {
         $frontendController->listPosts();

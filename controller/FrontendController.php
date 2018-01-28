@@ -34,4 +34,11 @@ class FrontendController{
           header('Location: index.php?action=post&id=' . $postId);
       }
   }
+  public function report($postId, $id)
+  {
+    $commentManager = new CommentManager();
+
+    $report = $commentManager->report($id);
+    header('Location: index.php?action=post&id=' . $postId);
+  }
 }
