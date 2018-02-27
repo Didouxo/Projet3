@@ -1,27 +1,7 @@
-h1, h3
-{
-    text-align:center;
+header, .card {
+  margin-bottom: 20px;
 }
-h3
-{
-    background-color:black;
-    color:white;
-    font-size:0.9em;
-    margin-bottom:0px;
-}
-.news p
-{
-    background-color:#CCCCCC;
-    margin-top:0px;
-}
-.news
-{
-    width:70%;
-    margin:auto;
-}
-
-a
-{
-    text-decoration: none;
-    color: blue;
+.ligne {
+  border-top: 2px solid #DFDFDF;
+  margin: 20px 0;
 }
