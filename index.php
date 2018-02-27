@@ -2,6 +2,7 @@
 require 'model/Manager.php';
 require 'model/CommentManager.php';
 require 'model/PostManager.php';
+require 'model/ConnectionManager.php';
 
 require 'controller/FrontendController.php';
 
@@ -39,6 +40,14 @@ try {
          }
          else {
              throw new Exception('Tous les champs ne sont pas remplis !');
+         }
+       }
+       elseif ($_GET['action'] == 'connect') {
+         $frontendController->connect();
+       }
+       elseif ($_GET['action'] == 'verifConnection') {
+         if (isset($_POST['pseudo']) && isset($_POST['password'])){
+           $frontendController->verifConnection($_POST['pseudo'], $_POST['password']);
          }
        }
     }
