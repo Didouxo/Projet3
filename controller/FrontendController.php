@@ -10,13 +10,13 @@ class FrontendController{
       require('view/frontend/listPostsView.php');
   }
 
-  public function post()
+  public function post($id)
   {
       $postManager = new PostManager();
       $commentManager = new CommentManager();
 
-      $post = $postManager->getPost($_GET['id']);
-      $comments = $commentManager->getComments($_GET['id']);
+      $post = $postManager->getPost($id);
+      $comments = $commentManager->getComments($id);
 
       require('view/frontend/postView.php');
   }
@@ -40,5 +40,24 @@ class FrontendController{
 
     $report = $commentManager->report($id);
     header('Location: index.php?action=post&id=' . $postId);
+  }
+  public function connect()
+  {
+    $error = isset($_GET['error']);
+    require('view/frontend/connectionView.php');
+  }
+  public function verifConnection($pseudo, $password)
+  {
+    $connectionManager = new ConnectionManager();
+    $postManager = new PostManager();
+    $posts = $postManager->getPosts();
+
+    $verifConnection = $connectionManager->verifConnection($pseudo, $password);
+    if ($verifConnection){
+      require('view/frontend/verificationView.php');
+    }
+    else {
+      header('Location: index.php?action=connect&error=1');
+    }
   }
 }
