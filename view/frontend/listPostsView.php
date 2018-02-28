@@ -2,6 +2,11 @@
 
 <?php ob_start(); ?>
 
+<div class="jumbotron" "row">
+  <h1 class="d-flex justify-content-center">Un billet simple pour l'alaska !</h1>
+  <img class="col-sm-12" src="public/images/alaska.jpeg" alt="photo de l'alaska">
+</div>
+
   <div class="container">
     <div class="row">
     <?php while ($data = $posts->fetch()) { ?>
@@ -16,8 +21,8 @@
       </div>
     </div>
     <?php } ?>
+    </div>
   </div>
-</div>
 
 <?php $content = ob_get_clean(); ?>
 

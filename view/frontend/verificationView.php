@@ -2,9 +2,8 @@
 
 <?php ob_start(); ?>
 
-<?php echo '<p> Vous êtes connecté </p>' ; ?>
-
 <div class="container">
+  <?php echo '<p> Vous êtes connecté </p>' ; ?>
   <div class="row">
   <?php while ($data = $posts->fetch()) { ?>
   <div class="col-sm-6">
