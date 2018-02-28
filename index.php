@@ -5,8 +5,10 @@ require 'model/PostManager.php';
 require 'model/ConnectionManager.php';
 
 require 'controller/FrontendController.php';
+require 'controller/BackendController.php';
 
 $frontendController = new FrontendController();
+$backendController = new BackendController();
 
 try {
     if (isset($_GET['action'])) {
@@ -50,6 +52,9 @@ try {
            $frontendController->verifConnection($_POST['pseudo'], $_POST['password']);
          }
        }
+       elseif ($_GET['action'] == 'adminPage') {
+         $backendController->adminPage();
+         }
     }
     else {
         $frontendController->listPosts();

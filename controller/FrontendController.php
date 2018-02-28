@@ -49,12 +49,10 @@ class FrontendController{
   public function verifConnection($pseudo, $password)
   {
     $connectionManager = new ConnectionManager();
-    $postManager = new PostManager();
-    $posts = $postManager->getPosts();
 
     $verifConnection = $connectionManager->verifConnection($pseudo, $password);
     if ($verifConnection){
-      require('view/frontend/verificationView.php');
+      header('Location: index.php?action=adminPage');
     }
     else {
       header('Location: index.php?action=connect&error=1');
