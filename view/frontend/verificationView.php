@@ -1,6 +1,10 @@
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
+<a href="index.php?action=deconnect" class="btn btn-outline-light">Deconnexion</a>
+<?php $connection = ob_get_clean(); ?>
+
+<?php ob_start(); ?>
 
 <div class="container">
   <?php echo '<p> Vous êtes connecté </p>' ; ?>

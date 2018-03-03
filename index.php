@@ -55,6 +55,9 @@ try {
        elseif ($_GET['action'] == 'adminPage') {
          $backendController->adminPage();
          }
+         elseif ($_GET['action'] == 'deconnect') {
+           $backendController->deconnect();
+           }
     }
     else {
         $frontendController->listPosts();

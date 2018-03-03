@@ -17,7 +17,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="form-inline my-2 my-lg-0">
-    <a href="index.php?action=connect" class="btn btn-outline-light">Connexion</a>
+    <a><?= $connection ?></a>
   </div>
   </div>
 </nav>

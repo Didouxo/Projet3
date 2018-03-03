@@ -1,5 +1,7 @@
 <?php $title = 'Mon blog'; ?>
 
+<?php $connection = '' ?>
+
 <?php ob_start(); ?>
 
 <div class="container">

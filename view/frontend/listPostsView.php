@@ -1,6 +1,10 @@
 <?php $title = 'Mon blog'; ?>
 
 <?php ob_start(); ?>
+<a href="index.php?action=connect" class="btn btn-outline-light">Connexion</a>
+<?php $connection = ob_get_clean(); ?>
+
+<?php ob_start(); ?>
 
 <div class="jumbotron" "row">
   <h1 class="d-flex justify-content-center">Un billet simple pour l'alaska !</h1>

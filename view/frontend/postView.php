@@ -1,5 +1,7 @@
 <?php $title = htmlspecialchars($post['title']); ?>
 
+<?php $connection = '' ?>
+
 <?php ob_start(); ?>
 
 <div class="container">
