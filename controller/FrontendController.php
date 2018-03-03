@@ -65,19 +65,5 @@ class FrontendController{
     		header ('Location: index.php?action=connect&error=1');
     	}
     }
-    else {
-    	echo 'Les variables du formulaire ne sont pas déclarées.';
-    }
   }
 }
-
-//     $verifConnection = $connectionManager->verifConnection($pseudo, $password);
-//     if ($verifConnection){
-//       header('Location: index.php?action=adminPage');
-//     }
-//     else {
-//       header('Location: index.php?action=connect&error=1');
-//     }
-//   }
-// }
-// href="index.php?action=connect" class="btn btn-outline-light"
