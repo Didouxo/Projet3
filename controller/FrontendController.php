@@ -5,6 +5,7 @@ class FrontendController{
   public function listPosts()
   {
       $postManager = new PostManager();
+
       $posts = $postManager->getPosts();
 
       require('view/frontend/listPostsView.php');
@@ -17,6 +18,13 @@ class FrontendController{
 
       $post = $postManager->getPost($id);
       $comments = $commentManager->getComments($id);
+      $backUrl = "index.php";
+      $reportMessage = isset($_GET['reportMessage']);
+
+      session_start ();
+      if (isset($_SESSION['pseudo']) && isset($_SESSION['password'])) {
+        $backUrl = "index.php?action=adminPage";
+      }
 
       require('view/frontend/postView.php');
   }
@@ -39,11 +47,13 @@ class FrontendController{
     $commentManager = new CommentManager();
 
     $report = $commentManager->report($id);
-    header('Location: index.php?action=post&id=' . $postId);
+
+    header('Location: index.php?action=post&id=' . $postId . '&reportMessage=1');
   }
   public function connect()
   {
     $error = isset($_GET['error']);
+
     require('view/frontend/connectionView.php');
   }
   public function verifConnection($pseudo, $password)

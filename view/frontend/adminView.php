@@ -8,6 +8,10 @@
 
 <div class="container">
   <?php echo '<p> Vous êtes connecté </p>' ; ?>
+  <?php if ($removeMessage){
+    echo '<p> Supprimé ! </p>';
+  }
+  ?>
   <div class="row">
   <?php while ($data = $posts->fetch()) { ?>
   <div class="col-sm-6">

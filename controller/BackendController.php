@@ -8,7 +8,11 @@ class BackendController{
     if (isset($_SESSION['pseudo']) && isset($_SESSION['password'])) {
     $postManager = new PostManager();
     $posts = $postManager->getPosts();
+    $removeMessage = isset($_GET['removeMessage']);
     require('view/frontend/adminView.php');
+    }
+    else {
+      header ('location: index.php?action=connect');
     }
   }
   public function deconnect()
@@ -27,6 +31,6 @@ header ('location: index.php');
 
     $removePost = $removeManager->remove($id);
 
-    header('Location: index.php?action=adminPage');
+    header('Location: index.php?action=adminPage&removeMessage=1');
   }
 }

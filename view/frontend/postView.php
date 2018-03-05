@@ -5,7 +5,13 @@
 <?php ob_start(); ?>
 
 <div class="container">
-<p><a href="index.php">Retour à la liste des billets</a></p>
+<p><a href="<?= $backUrl ?>">Retour à la liste des billets</a></p>
+
+<?php if ($reportMessage){
+  echo '<p> Signalé ! </p>';
+}
+?>
+
 <div class="news">
     <h3>
         <?= htmlspecialchars($post['title']) ?>
