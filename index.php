@@ -3,6 +3,7 @@ require 'model/Manager.php';
 require 'model/CommentManager.php';
 require 'model/PostManager.php';
 require 'model/ConnectionManager.php';
+require 'model/RemoveManager.php';
 
 require 'controller/FrontendController.php';
 require 'controller/BackendController.php';
@@ -58,6 +59,11 @@ try {
          elseif ($_GET['action'] == 'deconnect') {
            $backendController->deconnect();
            }
+           elseif ($_GET['action'] == 'remove') {
+               if (isset($_GET['id']) && $_GET['id'] > 0) {
+                   $backendController->remove($_GET['id']);
+                 }
+               }
     }
     else {
         $frontendController->listPosts();

@@ -13,7 +13,7 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <a href="#">Modifier</a> ou <a href="#">Supprimer</a>
+        <a href="#">Modifier</a> ou <a href="index.php?action=remove&amp;id=<?= $data['id'] ?>">Supprimer</a>
         <h5 class="card-title"><?= htmlspecialchars($data['title']) ?></h5>
         <p class="text-muted"><?= $data['creation_date_fr'] ?></p>
         <p class="card-text"><?= substr(nl2br(htmlspecialchars($data['content'])), 0, 100); ?>...</p>

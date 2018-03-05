@@ -21,4 +21,12 @@ session_destroy ();
 
 header ('location: index.php');
   }
+  public function remove($id)
+  {
+    $removeManager = new RemoveManager();
+
+    $removePost = $removeManager->remove($id);
+
+    header('Location: index.php?action=adminPage');
+  }
 }
