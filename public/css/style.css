@@ -5,6 +5,6 @@ header, .card {
   border-top: 2px solid #DFDFDF;
   margin: 20px 0;
 }
-.billet {
+.billet, .biographie{
   text-align: justify;
 }
