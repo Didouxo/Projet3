@@ -33,4 +33,21 @@ header ('location: index.php');
 
     header('Location: index.php?action=adminPage&removeMessage=1');
   }
+  public function addPost($title, $content)
+  {
+    $postManager = new PostManager();
+
+    $addPost = $postManager->addPost($title, $content);
+
+    if ($addPost === false) {
+        throw new Exception('Impossible d\'ajouter le billet !');
+    }
+    else {
+        header('Location: index.php?action=adminPage');
+    }
+  }
+  public function writePost()
+  {
+    require('view/frontend/addPostView.php');
+  }
 }

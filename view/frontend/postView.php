@@ -19,7 +19,7 @@
     </h3>
 
     <p class="billet">
-        <?= nl2br(htmlspecialchars($post['content'])) ?>
+        <?= nl2br($post['content']) ?>
     </p>
 </div>
 

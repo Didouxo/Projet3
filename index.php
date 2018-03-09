@@ -56,15 +56,26 @@ try {
        elseif ($_GET['action'] == 'adminPage') {
          $backendController->adminPage();
          }
-         elseif ($_GET['action'] == 'deconnect') {
-           $backendController->deconnect();
+       elseif ($_GET['action'] == 'deconnect') {
+         $backendController->deconnect();
+         }
+        elseif ($_GET['action'] == 'remove') {
+           if (isset($_GET['id']) && $_GET['id'] > 0) {
+               $backendController->remove($_GET['id']);
+             }
            }
-           elseif ($_GET['action'] == 'remove') {
-               if (isset($_GET['id']) && $_GET['id'] > 0) {
-                   $backendController->remove($_GET['id']);
-                 }
-               }
+         elseif ($_GET['action'] == 'addPost') {
+                 if (!empty($_POST['title']) && !empty($_POST['content'])) {
+                     $backendController->addPost($_POST['title'], $_POST['content']);
+                   }
+                   else {
+                       throw new Exception('Tous les champs ne sont pas remplis !');
+                   }
     }
+        elseif ($_GET['action'] == 'writePost') {
+          $backendController->writePost();
+          }
+  }
     else {
         $frontendController->listPosts();
     }
