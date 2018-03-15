@@ -28,4 +28,17 @@ class CommentManager extends Manager
         "id" => $id
       ));
     }
+
+    public function getCommentsReport()
+    {
+        $db = $this->dbConnect();
+        $comments = $db->query('SELECT id, author, comment, report, post_id, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments ORDER BY report DESC, comment_date');
+        return $comments;
+    }
+    public function removeComment($id)
+    {
+      $db = $this->dbConnect();
+      $req = $db->prepare('DELETE FROM comments WHERE id = ?');
+      $req->execute(array($id));
+    }
 }

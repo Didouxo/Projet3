@@ -7,6 +7,8 @@
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 <script>tinymce.init({ selector:'textarea' });</script>
 
+<div class="container">
+
 <form action="index.php?action=addPost" method="post">
     <div>
         <label for="title">Titre</label><br />
@@ -20,6 +22,8 @@
         <input type="submit" />
     </div>
 </form>
+
+</div>
 
 <?php $content = ob_get_clean(); ?>
 

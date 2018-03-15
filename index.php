@@ -3,7 +3,6 @@ require 'model/Manager.php';
 require 'model/CommentManager.php';
 require 'model/PostManager.php';
 require 'model/ConnectionManager.php';
-require 'model/RemoveManager.php';
 
 require 'controller/FrontendController.php';
 require 'controller/BackendController.php';
@@ -59,9 +58,9 @@ try {
        elseif ($_GET['action'] == 'deconnect') {
          $backendController->deconnect();
          }
-        elseif ($_GET['action'] == 'remove') {
+        elseif ($_GET['action'] == 'removePost') {
            if (isset($_GET['id']) && $_GET['id'] > 0) {
-               $backendController->remove($_GET['id']);
+               $backendController->removePost($_GET['id']);
              }
            }
          elseif ($_GET['action'] == 'addPost') {
@@ -75,7 +74,15 @@ try {
         elseif ($_GET['action'] == 'writePost') {
           $backendController->writePost();
           }
-  }
+        elseif ($_GET['action'] == 'adminComment') {
+                $backendController->adminComment();
+          }
+        elseif ($_GET['action'] == 'removeComment') {
+           if (isset($_GET['id']) && $_GET['id'] > 0) {
+               $backendController->removeComment($_GET['id'], $_GET['postId']);
+             }
+           }
+}
     else {
         $frontendController->listPosts();
     }

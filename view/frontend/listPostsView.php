@@ -32,7 +32,7 @@
     <div class="col-sm-4">
       <div class="card">
         <div class="card-body">
-          <img src="public/images/ecrivain.jpeg" alt="photo de l'écrivain">
+          <img class="profilpic" src="public/images/ecrivain.jpeg" alt="photo de l'écrivain">
           <p class="biographie">Bonjour, je suis Jean Forteroche, ravie de faire votre connaissance ! Peut-être ne m'avez vous jamais lue ? C'est le moment de faire un tour au fil des pages de ce site/blog et de découvrir mon roman "Un billet simple pour l'alaska".</br></br> Hello, I'm Jean Forteroche, happy to meet you! Perhaps you have never read me? This is the time to take a tour through the pages of this site / blog and discover my novel "A simple ticket for Alaska."</p>
         </div>
       </div>

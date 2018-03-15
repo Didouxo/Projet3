@@ -8,3 +8,11 @@ header, .card {
 .billet, .biographie{
   text-align: justify;
 }
+.profilpic {
+  max-width: 100%;
+}
+.navAdmin {
+  display: flex;
+  justify-content:
+  
+}

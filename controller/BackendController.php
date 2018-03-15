@@ -25,11 +25,11 @@ session_destroy ();
 
 header ('location: index.php');
   }
-  public function remove($id)
+  public function removePost($id)
   {
-    $removeManager = new RemoveManager();
+    $postManager = new PostManager();
 
-    $removePost = $removeManager->remove($id);
+    $removePost = $postManager->removePost($id);
 
     header('Location: index.php?action=adminPage&removeMessage=1');
   }
@@ -49,5 +49,31 @@ header ('location: index.php');
   public function writePost()
   {
     require('view/frontend/addPostView.php');
+  }
+  public function adminComment()
+  {
+    $commentManager = new CommentManager();
+
+    $comments = $commentManager->getCommentsReport();
+    $backUrl = "index.php";
+    $removeMessage = isset($_GET['removeMessage']);
+
+    session_start ();
+    if (isset($_SESSION['pseudo']) && isset($_SESSION['password'])) {
+      $backUrl = "index.php?action=adminPage";
+    }
+
+    require('view/frontend/adminCommentView.php');
+  }
+  public function removeComment($id, $postId)
+  {
+    $commentManager = new CommentManager();
+    $postManager = new PostManager();
+
+    $removePost = $commentManager->removeComment($id);
+    $post = $postManager->getPost($postId);
+
+    header('Location: index.php?action=adminComment&postId=' . $postId . '&removeMessage=1');
+
   }
 }
