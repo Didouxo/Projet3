@@ -52,6 +52,15 @@ class FrontendController{
   }
   public function connect()
   {
+
+    $backUrl = "index.php";
+    $removeMessage = isset($_GET['removeMessage']);
+
+    session_start ();
+    if (isset($_SESSION['pseudo']) && isset($_SESSION['password'])) {
+      $backUrl = "index.php?action=adminPage";
+    }
+
     $error = isset($_GET['error']);
 
     require('view/frontend/connectionView.php');

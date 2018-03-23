@@ -12,9 +12,9 @@
 
 <div class="container">
 
-  <?php echo '<p> Vous êtes connecté </p>' ; ?>
+  <?php echo '<p class="alert alert-block alert-success"> Vous êtes connecté </p>' ; ?>
   <?php if ($removeMessage){
-    echo '<p> Billet supprimé ! </p>';
+    echo '<p class="alert alert-block alert-success"> Billet supprimé ! </p>';
   }
   ?>
 

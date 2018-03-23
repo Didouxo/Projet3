@@ -48,6 +48,14 @@ header ('location: index.php');
   }
   public function writePost()
   {
+    $backUrl = "index.php";
+    $removeMessage = isset($_GET['removeMessage']);
+
+    session_start ();
+    if (isset($_SESSION['pseudo']) && isset($_SESSION['password'])) {
+      $backUrl = "index.php?action=adminPage";
+    }
+
     require('view/frontend/addPostView.php');
   }
   public function adminComment()

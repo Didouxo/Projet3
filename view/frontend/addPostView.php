@@ -9,6 +9,8 @@
 
 <div class="container">
 
+<p><a href="<?= $backUrl ?>">Retour à la liste des billets</a></p>
+
 <form action="index.php?action=addPost" method="post">
     <div>
         <label for="title">Titre</label><br />

@@ -7,7 +7,7 @@
 <div class="container">
 <p><a href="<?= $backUrl ?>">Retour à la liste des billets</a></p>
 <?php if ($removeMessage){
-  echo '<p> Commentaire supprimé ! </p>';
+  echo '<p class="alert alert-block alert-danger"> Commentaire supprimé ! </p>';
 }
 ?>
 
@@ -17,9 +17,12 @@
 while ($comment = $comments->fetch())
 {
 ?>
+  <div class="card">
     <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
     <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
-    <a href="index.php?action=removeComment&amp;id=<?= $comment['id'] ?>">Supprimé</a>
+    <p class="alert alert-block alert-warning">Ce commentaire a été signalé <strong><?= $comment['report'] ?> fois.</strong></p>
+    <p><a href="index.php?action=removeComment&amp;id=<?= $comment['id'] ?>">Supprimé</a> ou <a href="#">Approuvé</a></p>
+  </div>
 <?php
 }
 ?>

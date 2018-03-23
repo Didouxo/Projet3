@@ -11,8 +11,6 @@ header, .card {
 .profilpic {
   max-width: 100%;
 }
-.navAdmin {
-  display: flex;
-  justify-content:
-  
+.navAdmin a {
+  margin-left: 2px;
 }

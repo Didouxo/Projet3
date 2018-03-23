@@ -8,7 +8,7 @@
 <p><a href="<?= $backUrl ?>">Retour à la liste des billets</a></p>
 
 <?php if ($reportMessage){
-  echo '<p> Signalé ! </p>';
+  echo '<p class=" alert alert-block alert-success"> Signalé ! </p>';
 }
 ?>
 

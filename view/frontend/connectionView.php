@@ -5,9 +5,12 @@
 <?php ob_start(); ?>
 
 <div class="container">
+
+<p><a href="<?= $backUrl ?>">Retour à la liste des billets</a></p>
+
   <h1>Connexion</h1>
   <?php if ($error){
-    echo '<p> identifiants erronés </p>';
+    echo '<p class="alert alert-block alert-danger"> identifiants erronés </p>';
   }
   ?>
 
