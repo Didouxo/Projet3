@@ -9,7 +9,7 @@ class BackendController{
     $postManager = new PostManager();
     $posts = $postManager->getPostsAdmin();
     $removeMessage = isset($_GET['removeMessage']);
-    require('view/frontend/adminView.php');
+    require('view/backend/adminView.php');
     }
     else {
       header ('location: index.php?action=connect');
@@ -60,7 +60,7 @@ header ('location: index.php');
     $content = "";
     $form = "index.php?action=addPost";
 
-    require('view/frontend/addPostView.php');
+    require('view/backend/addPostView.php');
   }
   public function adminComment()
   {
@@ -75,7 +75,7 @@ header ('location: index.php');
       $backUrl = "index.php?action=adminPage";
     }
 
-    require('view/frontend/adminCommentView.php');
+    require('view/backend/adminCommentView.php');
   }
   public function removeComment($id, $postId)
   {
@@ -105,7 +105,7 @@ header ('location: index.php');
     $content = $post['content'];
     $form = "index.php?action=modifPost&id=" . $id;
 
-    require('view/frontend/addPostView.php');
+    require('view/backend/addPostView.php');
   }
   public function modifPost($content, $title, $id, $brouillon)
   {
