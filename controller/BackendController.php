@@ -7,7 +7,7 @@ class BackendController{
     session_start ();
     if (isset($_SESSION['pseudo']) && isset($_SESSION['password'])) {
     $postManager = new PostManager();
-    $posts = $postManager->getPosts();
+    $posts = $postManager->getPostsAdmin();
     $removeMessage = isset($_GET['removeMessage']);
     require('view/frontend/adminView.php');
     }
@@ -33,11 +33,11 @@ header ('location: index.php');
 
     header('Location: index.php?action=adminPage&removeMessage=1');
   }
-  public function addPost($title, $content)
+  public function addPost($title, $content, $brouillon)
   {
     $postManager = new PostManager();
 
-    $addPost = $postManager->addPost($title, $content);
+    $addPost = $postManager->addPost($title, $content, $brouillon);
 
     if ($addPost === false) {
         throw new Exception('Impossible d\'ajouter le billet !');
@@ -55,6 +55,10 @@ header ('location: index.php');
     if (isset($_SESSION['pseudo']) && isset($_SESSION['password'])) {
       $backUrl = "index.php?action=adminPage";
     }
+
+    $titlePost = "";
+    $content = "";
+    $form = "index.php?action=addPost";
 
     require('view/frontend/addPostView.php');
   }
@@ -82,6 +86,33 @@ header ('location: index.php');
     $post = $postManager->getPost($postId);
 
     header('Location: index.php?action=adminComment&postId=' . $postId . '&removeMessage=1');
+  }
+  public function modifView($id)
+  {
+    $postManager = new PostManager();
 
+    $post = $postManager->getPost($id);
+
+    $backUrl = "index.php";
+    $removeMessage = isset($_GET['removeMessage']);
+
+    session_start ();
+    if (isset($_SESSION['pseudo']) && isset($_SESSION['password'])) {
+      $backUrl = "index.php?action=adminPage";
+    }
+
+    $titlePost = $post['title'];
+    $content = $post['content'];
+    $form = "index.php?action=modifPost&id=" . $id;
+
+    require('view/frontend/addPostView.php');
+  }
+  public function modifPost($content, $title, $id, $brouillon)
+  {
+    $postManager = new PostManager();
+
+    $modificationPost = $postManager->modifPost($content, $title, $id, $brouillon);
+
+    header('Location: index.php?action=adminPage');
   }
 }

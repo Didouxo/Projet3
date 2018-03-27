@@ -65,7 +65,7 @@ try {
            }
          elseif ($_GET['action'] == 'addPost') {
                  if (!empty($_POST['title']) && !empty($_POST['content'])) {
-                     $backendController->addPost($_POST['title'], $_POST['content']);
+                     $backendController->addPost($_POST['title'], $_POST['content'], isset($_POST['brouillon'])? 1:0);
                    }
                    else {
                        throw new Exception('Tous les champs ne sont pas remplis !');
@@ -82,6 +82,18 @@ try {
                $backendController->removeComment($_GET['id'], $_GET['postId']);
              }
            }
+        elseif ($_GET['action'] == 'modifView') {
+          if (isset($_GET['id']) && $_GET['id'] > 0) {
+            $backendController->modifView($_GET['id']);
+          }
+        }
+        elseif ($_GET['action'] == 'modifPost') {
+          if (isset($_GET['id']) && $_GET['id'] > 0) {
+            if (!empty($_POST['content']) && !empty($_POST['title'])) {
+              $backendController->modifPost($_POST['content'], $_POST['title'], $_GET['id'], isset($_POST['brouillon'])? 1:0);
+            }
+          }
+        }
 }
     else {
         $frontendController->listPosts();

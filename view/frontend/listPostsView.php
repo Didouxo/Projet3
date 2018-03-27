@@ -21,7 +21,7 @@
         <div class="card-body">
           <h5 class="card-title"><?= htmlspecialchars($data['title']) ?></h5>
           <p class="text-muted"><?= $data['creation_date_fr'] ?></p>
-          <p class="card-text"><?= substr(nl2br(htmlspecialchars($data['content'])), 0, 100); ?>...</p>
+          <p class="card-text"><?= substr(nl2br($data['content']), 0, 100); ?></p>
           <a href="index.php?action=post&amp;id=<?= $data['id'] ?>" class="btn btn-primary" style="background-color:#255681;">Lire l'article</a>
         </div>
       </div>

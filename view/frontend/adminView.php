@@ -23,10 +23,11 @@
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
-        <a href="#">Modifier</a> ou <a href="index.php?action=removePost&amp;id=<?= $data['id'] ?>">Supprimer</a>
+        <a href="index.php?action=modifView&amp;id=<?= $data['id'] ?>">Modifier</a> ou <a href="index.php?action=removePost&amp;id=<?= $data['id'] ?>">Supprimer</a>
         <h5 class="card-title"><?= $data['title'] ?></h5>
         <p class="text-muted"><?= $data['creation_date_fr'] ?></p>
-        <p class="card-text"><?= substr(nl2br($data['content']), 0, 100); ?>...</p>
+        <p><strong><em><?= $data['brouillon'] == 1 ?'Brouillon':'Publié' ?></strong></em></p>
+        <p class="card-text"><?= substr(nl2br($data['content']), 0, 100); ?></p>
       </div>
     </div>
   </div>
